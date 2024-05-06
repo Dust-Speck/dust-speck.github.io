@@ -53,19 +53,19 @@ var count = 0
 var pilotalive = 1
 function button1(){
   if (place == 'start'){
-  	alert('YOU GET OFF HIS LEAF')
+  	////alert('YOU GET OFF HIS LEAF')
     document.getElementById("text").innerHTML = 'Maadhav unhinges his jaw, transfigures himself into a baby walrus and eats a mountain lion. YOU ARE THAT MOUNTAIN LION.'
     die()
   
 }else if (place == 'kids'){
-    alert('YOU DEVOUR MAADHAV\'S KIDS')
+    //alert('YOU DEVOUR MAADHAV\'S KIDS')
     place = 'almost'
     document.getElementById("text").innerHTML = 'There are sixteen of them, twenty-two of which are illegitimate. You finish consuming them by April.'
     document.getElementById("button1").innerHTML = 'Time-switch two mini-checkers into one were-donkey.'
     document.getElementById("button2").innerHTML = 'Welp a kelp.'
 
 }else if (place == 'almost'){
-    alert('YOU BREAK REALITY')
+    //alert('YOU BREAK REALITY')
     document.getElementById("text").innerHTML = 'Sadly, time-switching two mini-checkers into one were-donkey is not widely accepted in your region.'
     die()
 
@@ -77,19 +77,19 @@ function button1(){
 
 function button2(){
   if (place == 'start'){
-  	alert('YOU DEVOUR MAADHAV')
+  	//alert('YOU DEVOUR MAADHAV')
     place = 'kids'
     document.getElementById("text").innerHTML = 'Maadhav\'s children come out of the house and stare at his dead body (which you ate).'
     document.getElementById("button1").innerHTML = 'Devour.'
     document.getElementById("button2").innerHTML = 'Seduce.'
     
  }else if (place == 'kids'){
-    alert('YOU SEDUCE MAADHAV\'S KIDS')
+    //alert('YOU SEDUCE MAADHAV\'S KIDS')
     document.getElementById("text").innerHTML = 'Maadhav\'s kids are seduced.'
     win()
      
  }else if (place == 'almost'){
-    alert('YOU WELPED A KELP')
+    //alert('YOU WELPED A KELP')
     document.getElementById("text").innerHTML = 'I don\'t know how one does that so here, you win.'
     win()
    
