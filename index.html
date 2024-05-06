@@ -1,11 +1,11 @@
 <html>
-<h2>Maadhav</h2>
-<p id = 'text'>Maadhav is standing in front of you. What do you do?</p>
-<button class = 'button blue' id = 'button1' onclick = 'button1(),survive()'>Get off his leaf.</button>
-<button class = 'button red' id = 'button2' onclick = 'button2(),survive()'>Devour.</button>
+<h2>Stage One: London</h2>
+<p id = 'text'>You find yourself on the streets of London</p>
+<button class = 'button blue' id = 'button1' onclick = 'button1(),survive()'>Explore the city.</button>
+<button class = 'button red' id = 'button2' onclick = 'button2(),survive()'>Walk out into the street.</button>
 <p id = 'warning'></p>
-<h3 id = 'count'>Your aim is to exist</h3>
-<a id = 'done' href=""></a>
+<h3 id = 'count'>Your aim is to find Honest Bob, who lives in Peru.</h3>
+<a id = 'done' href="To%20Peru%20Stage%202.html"></a>
 
 <style>
 .button {
@@ -25,22 +25,22 @@
 .blue {
   background-color: white; 
   color: black; 
-  border: 2px solid #D74894;
+  border: 2px solid #008CBA;
 }
 
 .blue:hover {
-  background-color: #D74894;
+  background-color: #008CBA;
   color: white;
 }
 
 .red {
   background-color: white; 
   color: black; 
-  border: 2px solid #ffcc00;
+  border: 2px solid #f44336;
 }
 
 .red:hover {
-  background-color: #ffcc00;
+  background-color: #f44336;
   color: white;
 }: white;
 }
@@ -48,51 +48,748 @@
 
 <script>
 //http://www.createawebsite.cc
-var place = 'start'
+var place = 'london'
 var count = 0
-var pilotalive = 1
 function button1(){
-  if (place == 'start'){
-  	////alert('YOU GET OFF HIS LEAF')
-    document.getElementById("text").innerHTML = 'Maadhav unhinges his jaw, transfigures himself into a baby walrus and eats a mountain lion. YOU ARE THAT MOUNTAIN LION.'
+  if (place == 'london'){
+  	alert('YOU BEGIN TO EXPLORE THE CITY')
+    place = 'man'
+    document.getElementById("text").innerHTML = 'You quickly encounter a man who smiles politely and asks if you are lost.'
+    document.getElementById("button1").innerHTML = 'Attack the man.'
+    document.getElementById("button2").innerHTML = 'Ask him which way Peru is.'
+  }else if (place == 'man'){
+    alert('YOU ATTACK THE MAN')
+    place = 'ninja'
+    document.getElementById("text").innerHTML = 'Unfortunately this man trained for twelve years as a ninja.'
+    document.getElementById("button1").innerHTML = 'Use a nearby lamppost to knock him out.'
+    document.getElementById("button2").innerHTML = 'Run away.'
+
+}else if (place == 'mugged'){
+    alert('YOU GIVE THE NINJAS BREAD')
+    document.getElementById("text").innerHTML = 'You realize that regrettably you did not purchase any bread. This infuriates the ninjas and so they brutally dismember you.'
     die()
-  
-}else if (place == 'kids'){
-    //alert('YOU DEVOUR MAADHAV\'S KIDS')
-    place = 'almost'
-    document.getElementById("text").innerHTML = 'There are sixteen of them, twenty-two of which are illegitimate. You finish consuming them by April.'
-    document.getElementById("button1").innerHTML = 'Time-switch two mini-checkers into one were-donkey.'
-    document.getElementById("button2").innerHTML = 'Welp a kelp.'
 
-}else if (place == 'almost'){
-    //alert('YOU BREAK REALITY')
-    document.getElementById("text").innerHTML = 'Sadly, time-switching two mini-checkers into one were-donkey is not widely accepted in your region.'
+}else if (place == 'wheretodrive'){
+    alert('YOU DRIVE UNDER A SHORT BRIDGE')
+    document.getElementById("text").innerHTML = 'You ignore the height restrictions on the bridge, which inevitably leads to your demise.'
+    die()
+
+}else if (place == 'tirecar' || place == 'arrested' || place == 'hideonbus' || place == 'caughtjet' || place == 'policecaptured' || place == 'tiedup' || place == 'beatninjas' || place == 'tiedup2'){
+    alert('YOU WAIT IN THE BACK OF THE POLICE CAR')
+
+    place = 'newcell'
+    document.getElementById("text").innerHTML = 'After an hour of driving, the police car stops and you are delivered to a cell, somewhere in East London. You share your new cell with another criminal, who you recognize as Honest Steve, the old mayor.'
+    document.getElementById("button1").innerHTML = 'Offer Steve a chance to escape prison.'
+    document.getElementById("button2").innerHTML = 'Offer the guard a chance to escape prison.'
+
+ }else if (place == 'newcell'){
+    alert('YOU OFFER HONEST STEVE A CHANCE TO ESCAPE PRISON')
+    place = 'quest'
+    document.getElementById("text").innerHTML = 'Steve reveals to you that he is breaking out of prison tomorrow, and that you can come along if you can find him a "Bumblemole". He tells you it is a small pink animal that is hiding somewhere in the prison.'
+    document.getElementById("button1").innerHTML = 'Tell Steve that he is insane.'
+    document.getElementById("button2").innerHTML = 'Agree to find the Bumblemole.'
+
+ }else if (place == 'losecards'){
+    alert('YOU CHASE THE BUMBLEMOLE OUT OF THE BASEMENT AND DOWN A CORRIDOR')
+    place = 'thereitis'
+    document.getElementById("text").innerHTML = 'The chase after the creature is leading you in the direction of the exit of the prison.'
+    document.getElementById("button1").innerHTML = 'When it comes into arm\'s reach, pick it up and continue your escape.'
+    document.getElementById("button2").innerHTML = 'Turn back. It\'s to risky. You don\'t want to be caught.'
+
+ }else if (place == 'quest'){
+    alert('YOU TELL STEVE THAT HE IS INSANE')
+    document.getElementById("text").innerHTML = 'Steve shrugs, and you do not talk again. But in the night, you wake to see a swarm of Bumblemoles entering the cell. You do not awake next morning.'
+    die()
+
+ }else if (place == 'privatecell'){
+    alert('TRY TO LEAVE THE NEW CELL')
+    place = 'cellescape'
+    document.getElementById("text").innerHTML = 'Luckily the cell door was left unlocked and you now have a chance to escape. Where to?'
+    document.getElementById("button1").innerHTML = 'Your old cell - you must find Honest Steve!'
+    document.getElementById("button2").innerHTML = 'Try to escape the prison.'
+
+ }else if (place == 'searching'){
+    alert('YOU HEAD TO THE BASEMENT')
+    place = 'prisonbasement'
+    document.getElementById("text").innerHTML = 'When you arrive in the basement, you see other prisoners all around you, relaxing. Some play cards while others talk to their friends.'
+    document.getElementById("button1").innerHTML = 'Play cards.'
+    document.getElementById("button2").innerHTML = 'Talk to some of the other inmates.'
+
+ }else if (place == 'prisonbasement'){
+    alert('YOU PLAY CARDS WITH SOME OF THE INMATES')
+    place = 'cardgame'
+    document.getElementById("text").innerHTML = 'You vaguely know how to play this game. You are dealt three cards: The Ace of Spades, the Four of Hearts and the Queen of Spades.'
+    document.getElementById("button1").innerHTML = 'Play the Ace.'
+    document.getElementById("button2").innerHTML = 'Play the Four.'
+
+ }else if (place == 'cardgame'){
+    alert('YOU PLAY THE ACE')
+    document.getElementById("text").innerHTML = 'Your Ace of Spades beat the other four cards played by the prisoners, so you win. This causes one to get so angry that he uses his twelve years of ninja training to end your life.'
+    die()
+
+ }else if (place == 'corridor'||place == 'thereitis'){
+    alert('YOU PICK UP THE BUMBLEMOLE')
+    place = 'planefly'
+    document.getElementById("text").innerHTML = 'You continue your escape, smash a window and find yourself outside the prison. You catch sight of Honest Steve boarding a plane, and you are quick to follow. He lets you on when you show him the Bumblemole, and the plane lifts off. You have done it!'
+    document.getElementById("button1").innerHTML = 'Offer to take over piloting the plane.'
+    document.getElementById("button2").innerHTML = 'Relax and ask where the plane is headed.'
+
+ }else if (place == 'planefly'){
+    alert('YOU OFFER TO TAKE OVER FLYING THE PLANE')
+    document.getElementById("text").innerHTML = 'You are content for a few minutes, before realizing you have no idea how to fly a plane. You and the rest of the passengers fall from the sky to your deaths.'
+    die()
+
+ }else if (place == 'cellescape'){
+    alert('YOU RETURN TO YOUR OLD CELL')
+    document.getElementById("text").innerHTML = 'When you reach the cell, you find Honest Steve gone! He must have already escaped! You turn to leave, but a guard had heard you and the cell door is now locked. You live out the rest of your life in that cell, never released for fear you would escape.'
+    die()
+
+}else if (place == 'infiniltrate'){
+    alert('YOU OFFER TO DO THE PLANNING TO ASSANSINATE HONEST STEVE')
+    document.getElementById("text").innerHTML = 'You plan every aspect of the assasination, and the ninjas are very impressed with your work. Until your plan completely fails and you and every ninja in on the plan are slaughtered by Steve\'s league of bodyguards.'
+    die()
+
+}else if (place == 'storage'){
+    alert('YOU STEAL ONE OF THE EXTREMELY EXPENSIVE CARS')
+    document.getElementById("text").innerHTML = 'You are never caught, you sell the car and live off the profits for the rest of your easy life. You die at an old age, living long and happily.'
+    die()
+
+}else if (place == 'roof'){
+    alert('YOU SIGNAL A PASSING HELICOPTER')
+    document.getElementById("text").innerHTML = 'You use a mirror you find in your pocket to signal the helicopter, which promptly spirals into a building due to your distraction. The wreckage falls from the sky, one piece landing on you and killing you instantly.'
+    die()
+
+   }else if (place == 'alley'){
+    alert('YOU CHEERILY GREET THE GENTLEMEN')
+    document.getElementById("text").innerHTML = 'You realize you have made a mistake as they all turn aroud and reveal themselves to be heavily armed, each of them having been trained for twelve years as a ninja.'
+    die() 
+    
+  }else if (place == 'ninja'){
+    alert('YOU TRY TO LIFT A LAMPPOST')
+    document.getElementById("text").innerHTML = 'You fail to use the lamppost as a weapon and the ninja easily defeats you in combat.'
+    die()
+      
+}else if (place == 'manhole'){
+    alert('YOU TRY TO CLIMB BACK OUT THE MANHOLE')
+    document.getElementById("text").innerHTML = 'As you scale the wall and climb out of a manhole, you realize the criminals were waiting for you, who are quick to end your life.'
+    die()
+    
+  }else if (place == 'street'){
+    alert('YOU KILL THE BUS DRIVER')
+    place = 'police1'
+    document.getElementById("text").innerHTML = 'You hear sirens as a police car approaches.'
+    document.getElementById("button1").innerHTML = 'Attack the police car.'
+    document.getElementById("button2").innerHTML = 'Run away.'
+
+}else if (place == 'lobby'){
+    alert('YOU ROB THE CASH REGISTER')
+    place = 'register'
+    document.getElementById("text").innerHTML = 'You know the police will be arriving soon. The only option is to get out of town, and fast. Maybe to America?'
+    document.getElementById("button1").innerHTML = 'Hire a private jet to New York.'
+    document.getElementById("button2").innerHTML = 'Go to New York on foot.'
+
+}else if (place == 'sewer'){
+    alert('YOU MAKE A RUN FOR IT')
+    document.getElementById("text").innerHTML = 'You do not make it far before confronted by the group of criminals from earlier. They are deeply offended by what you did to them and show it.'
+    die()
+
+}else if (place == 'register'){
+    alert('YOU DECIDE TO HIRE A PRIVATE JET')
+    place = 'jet'
+    document.getElementById("text").innerHTML = 'With the money you stole from the register at the car dealership, you hire a private jet and board it. You will escape the soon. This will bring you one step closer to Peru, and Honest Bob!'
+    document.getElementById("button1").innerHTML = 'Wait for the jet to take off.'
+    document.getElementById("button2").innerHTML = 'Have second thoughts and disembark the plane.'
+
+}else if (place == 'jet'){
+    alert('THE JET TAKES OFF')
+    document.getElementById("text").innerHTML = 'Unfortunately, you encounter major turbulence during the journey and a huge storm strikes. The plane is hit by lightning somehow, and you tumble, dead, into the Atlantic Ocean.'
+    die()
+
+}else if (place == 'explorepolice'){
+    alert('YOU VISIT THE LOCAL BAKERY')
+    place = 'bakery'
+    document.getElementById("text").innerHTML = 'In the bakery, there is a long line to the counter. You really want some quality bread though.'
+    document.getElementById("button1").innerHTML = 'Use your police authority to clear the shop and skip the queue.'
+    document.getElementById("button2").innerHTML = 'Give up and return to the police station.'
+
+}else if (place == 'bakery'){
+    alert('YOU USE YOUR POLICE AUTHORITY TO CLEAR THE SHOP AND SKIP THE QUEUE')
+    document.getElementById("text").innerHTML = 'One particular customer is extremely offended by your attempt, and, driven by a mad want for bread, ends your life.'
+    die()
+
+ }else if (place == 'evilpolice'){
+    alert('YOU ATTACK THE CORRUPT POLICE OFFICERS')
+    document.getElementById("text").innerHTML = 'You were wrong. They were not criminals. They were actually ninjas, each trained for twelve years in martial arts.'
+    die()
+    
+}else if (place == 'suddenpolice'){
+    alert('YOU ATTACK THE POLICE OFFICER')
+    document.getElementById("text").innerHTML = 'Realizing your true ninja potential, you use a nearby katana to take out this officer. Unfortunately, another officer coincidentally has twelve years of ninja training, which beats your minute of a half of pretending to be a ninja.'
+    die()
+    
+  }else if (place == 'police1'){
+    alert('YOU ATTACK THE POLICE CAR')
+    document.getElementById("text").innerHTML = 'You feebly attack the inanimate metal object until your wounds are so serious you die.'
+    die()
+
+  }else if (place == 'criminals'){
+    alert('YOU RUN FROM THE CRIMINALS')
+    document.getElementById("text").innerHTML = 'It is difficult to run with only one shoe, so they easily catch up from you and murder you.'
     die()
 
 
+  }else if (place == 'bus'){
+    alert('YOU STOP THE BUS')
+    place = 'stop'
+    document.getElementById("text").innerHTML = 'As you stop the bus and the passengers hastily get off, you hear sirens as the police arrive.'
+    document.getElementById("button1").innerHTML = 'Exit the vehicle.'
+    document.getElementById("button2").innerHTML = 'Drive away.'
+
+}else if (place == 'stop'){
+    alert('YOU LEAVE THE VEHICLE')
+    place = 'ninjataxi'
+    document.getElementById("text").innerHTML = 'Before you surrender yourself to the police, a ninja drops from the sky and takes control of the police car. You have a chance to escape!'
+    document.getElementById("button1").innerHTML = 'Climb into the passenger seat alongside the ninja.'
+    document.getElementById("button2").innerHTML = 'Run away.'
+    
+}else if (place == 'ninjataxi'){
+    alert('YOU GET IN THE POLICE CAR WITH THE NINJA')
+    place = 'ninjabag'
+    document.getElementById("text").innerHTML = 'The ninja doesn\'t seem to mind your presence and you drive away. In the back seat you find the ninja\'s bag, in which there is a spare ninja costume.'
+    document.getElementById("button1").innerHTML = 'Sit still and quietly for the drive.'
+    document.getElementById("button2").innerHTML = 'Rifle through the ninja\'s personal belongings, put on the costume and wait.'
+
+ }else if (place == 'ninjabag'){
+    alert('YOU SIT QUIETLY')
+    document.getElementById("text").innerHTML = 'Rather unfortunately, this ninja (with twelve years of ninja training) is not patient. He quickly gets bored of your idle behaviour and runs a dagger through your heart.'
+    die()
+
+  }else if (place == 'advert'){
+    alert('YOU CALL THE NUMBER ON THE ADVERTISEMENT')
+    place = 'call'
+    document.getElementById("text").innerHTML = 'Four days later, you are admitted into a group of other people who have signed up to join the police force.'
+    document.getElementById("button1").innerHTML = 'Brutally dismember the other trainees.'
+    document.getElementById("button2").innerHTML = 'Dedicate your life to becoming a good police officer.'
+    
+   }else if (place == 'call'){
+    alert('YOU BRUTALLY MURDER THE OTHER POLICE TRAINEES')
+    document.getElementById("text").innerHTML = 'What an unfortunate turn of events. One of the other attendees was training as a ninja for twelve years and easily ends your life.'
+    die()
+    
+  }else if (place == 'escaped'){
+    alert('YOU JUMP OUT AT THE NINJA AS HE PASSES')
+    place = 'youninja'
+    document.getElementById("text").innerHTML = 'The ninja collapses under your sudden weight and falls, unconscious.'
+    document.getElementById("button1").innerHTML = 'Try on the ninja outfit.'
+    document.getElementById("button2").innerHTML = 'Pick up his katana. You\'ve always wanted one of those.'
+    
+    }else if (place == 'youninja'){
+    alert('YOU TRY ON THE NINJA OUTFIT')
+    place = 'otherninja'
+    document.getElementById("text").innerHTML = 'You are instantly confronted by another ninja who calls you John and offers to take you back to the ninja base.'
+    document.getElementById("button1").innerHTML = 'Attack the heavily armed ninja warrior.'
+    document.getElementById("button2").innerHTML = 'Go with him to the ninja base.'
+    
+    }else if (place == 'otherninja'){
+    alert('YOU ATTACK THE OTHER NINJA')
+    document.getElementById("text").innerHTML = 'This particular ninja has had twelve years of martial arts training and quickly impales you with multiple sharp weapons.'
+    die()
+    
+  }else if (place == 'direct'){
+    alert('YOU ENTER THE SHOP')
+    place = 'advert'
+    document.getElementById("text").innerHTML = 'As you open the door, an advert to join the police force catches your eye.'
+    document.getElementById("button1").innerHTML = 'Call the number on the advertisement.'
+    document.getElementById("button2").innerHTML = 'Look for the shopkeeper. They may have information that could lead you to the elusive Honest Bob.'
+    
+    }else if (place == 'trust'){
+    alert('TOGETHER YOU AND THE CRIMINAL ESCAPE THE STATION')
+    place = 'plan'
+    document.getElementById("text").innerHTML = 'He reveals to you a plan to rob London\'s diamond exhibit.'
+    document.getElementById("button1").innerHTML = 'Agree to the robbery.'
+    document.getElementById("button2").innerHTML = 'Attack the criminal.'
+    
+    }else if (place == 'plan'){
+    alert('YOU AGREE TO THE ROBBERY')
+    place = 'heist'
+    document.getElementById("text").innerHTML = 'After days of extensive planning, you arrive at the diamond exhibit and begin your heist.'
+    document.getElementById("button1").innerHTML = 'Push your crime partner into the motion detectors.'
+    document.getElementById("button2").innerHTML = 'Steal the diamond and return to the base.'
+    
+}else if (place == 'lake'||place == 'policefindyou'){
+    alert('YOU GIVE YOURSELF UP')
+    place = 'lakeside1'
+    document.getElementById("text").innerHTML = 'You give yourself up, but before you are handcuffed, a group of criminals appear and slaughter the police force surrounding you.'
+    document.getElementById("button1").innerHTML = 'Offer to join them.'
+    document.getElementById("button2").innerHTML = 'This is your chance to escape!'
+     
+}else if (place == 'lakeside1'||place=='shop1'){
+    alert('YOU OFFER TO JOIN THE DANGEROUS CRIMINAL GANG')
+    place = 'joingang'
+    document.getElementById("text").innerHTML = 'The criminals don\'t mind if you tag along. But they could be plotting to secretly end you...'
+    document.getElementById("button1").innerHTML = 'Before they can, brutally dismember each and every one of them.'
+    document.getElementById("button2").innerHTML = 'Secretly plot to end them instead.'
+      
+}else if (place == 'joingang'){
+    alert('YOU BRUTALLY DISMEMBER HALF THE CRIMINALS IN THE CITY')
+    place = 'tirecar'
+    document.getElementById("text").innerHTML = 'Somehow, untrained, you manage to fight your way through waves and waves of criminals. However, this makes you tired, and when you next wake you are handcuffed in the back of the police car.'
+    document.getElementById("button1").innerHTML = 'Wait in the back of the car, to see where the police officer takes you.'
+    document.getElementById("button2").innerHTML = 'Use your newfound combat skills to take out the police officer driving and comandeer the vehicle.'
+    // 8 ROUNDS    
+
+    }else if (place == 'owner'){
+    alert('YOU PROVOKE THE SHOPKEEPER')
+    document.getElementById("text").innerHTML = 'The shopkeeper responds to this by using his twelve years of ninja training to end your life.'
+    die()
+    
+    }else if (place == 'where'){
+    alert('YOU STAND STILL')
+    document.getElementById("text").innerHTML = 'The ninja was not joking. He uses his twelve years of ninja training to slaughter you.'
+    die()
+    
+    }else if (place == 'heist'){
+    alert('YOU PUSH THE CRIMINAL INTO THE MOTION DETECTORS')
+    place = 'arrested'
+    document.getElementById("text").innerHTML = 'The alarms go off and the police are quick to arrive. Both of you are put into a police car.'
+    document.getElementById("button1").innerHTML = 'Wait to arrive at wherever they are taking you.'
+    document.getElementById("button2").innerHTML = 'Provoke the dangerous criminal.'
+    
+    // 8 ROUNDS
+    
+    }else if (place == 'otherbus' || place == 'bus2'){
+    alert('YOU HIDE')
+    place = 'hideonbus'
+    document.getElementById("text").innerHTML = 'You remain inconspicuous. So much so that a police officer on the bus promptly arrests you, and at the next stop you are handcuffed in the back of a police car, with another criminal.'
+    document.getElementById("button1").innerHTML = 'Wait to arrive at wherever you are being brought.'
+    document.getElementById("button2").innerHTML = 'Provoke the dangerous criminal.'
+    
+// 7/8 ROUNDS
+    }else if (place == 'hide'||place == 'wreckage'){
+    alert('YOU WAIT FOR THE POLICE TO LEAVE AND THEN GO OUT INTO THE STREET')
+    place = 'refuge'
+    document.getElementById("text").innerHTML = 'For a wanted criminal like yourself, nowhere is safe.'
+    document.getElementById("button1").innerHTML = 'Find refuge with other criminals.'
+    document.getElementById("button2").innerHTML = 'Find refuge with ninjas.'
+
+    }else if (place == 'crash'){
+    alert('YOU LEAVE THE BUS')
+
+    place = 'wreckage'
+    document.getElementById("text").innerHTML = 'Once you leave the bus, you see multiple police officers running towards you. You just manage to dash into an alley before any of them see you though.'
+    document.getElementById("button1").innerHTML = 'Wait for the police to leave then go out into the street.'
+    document.getElementById("button2").innerHTML = 'Run towards the police officers and take them out.'
+    
+}else if (place == 'refuge'){
+    alert('YOU SEEK OUT OTHER CRIMINALS')
+    place = 'policefindyou'
+    document.getElementById("text").innerHTML = 'After a day of searching, the police find you.'
+    document.getElementById("button1").innerHTML = 'Give yourself up.'
+    document.getElementById("button2").innerHTML = 'Attempt to flee.'
+    
+  }else if (place == 'policecar'){
+    alert('YOU TRY TO ESCAPE THE POLICE CAR')
+    document.getElementById("text").innerHTML = 'You didn\'t realize it before, but the glass that you shattered escaping the bus slowly made its way to your internal organs and you suffer a slow, painful death.'
+    die()
    }
 }
 
 
 
 function button2(){
-  if (place == 'start'){
-  	//alert('YOU DEVOUR MAADHAV')
-    place = 'kids'
-    document.getElementById("text").innerHTML = 'Maadhav\'s children come out of the house and stare at his dead body (which you ate).'
-    document.getElementById("button1").innerHTML = 'Devour.'
-    document.getElementById("button2").innerHTML = 'Seduce.'
+  if (place == 'london'){
+  	alert('YOU WALK OUT INTO THE STREET')
+    place = 'street'
+    document.getElementById("text").innerHTML = 'A bus screeches to a halt in front of you and the driver steps out.'
+    document.getElementById("button1").innerHTML = 'Kill the driver.'
+    document.getElementById("button2").innerHTML = 'Comandeer the bus.'
     
- }else if (place == 'kids'){
-    //alert('YOU SEDUCE MAADHAV\'S KIDS')
-    document.getElementById("text").innerHTML = 'Maadhav\'s kids are seduced.'
-    win()
+ }else if (place == 'street'){
+    alert('YOU COMANDEER THE BUS')
+    place = 'bus'
+    document.getElementById("text").innerHTML = 'You drive the stolen bus about a mile until one passenger tells you he missed his stop.'
+    document.getElementById("button1").innerHTML = 'Stop the bus.'
+    document.getElementById("button2").innerHTML = 'Drive the bus into a building.'
      
- }else if (place == 'almost'){
-    //alert('YOU WELPED A KELP')
-    document.getElementById("text").innerHTML = 'I don\'t know how one does that so here, you win.'
-    win()
+}else if (place == 'joingang'){
+    alert('YOU PLOT TO TAKE DOWN THE CRIMINAL SOCIETY')
+    document.getElementById("text").innerHTML = 'For months you create an elaborate plan to both escape alive and end every criminal in the base. You put your plan into action, but it fails drastically.'
+    die()
+     
+ }else if (place == 'policefindyou'){
+    alert('YOU TRY TO FLEE')
+    document.getElementById("text").innerHTML = 'As you run, you feel your life end as one of the police officers, having twelve years of ninja training, throws something sharp directly at your head.'
+    die()
+
+    }else if (place == 'advert'){
+    alert('YOU SEARCH THE SHOP FOR THE OWNER')
+    place = 'owner'
+    document.getElementById("text").innerHTML = 'You find the owner. He is a heavily armed ninja warrior. But he may have information about Honest Bob...'
+    document.getElementById("button1").innerHTML = 'Provoke him.'
+    document.getElementById("button2").innerHTML = 'Ask him where Bob is.'
+    
+ }else if (place == 'lakeside1'){
+    alert('YOU ESCAPE')
+    document.getElementById("text").innerHTML = 'As you flee, the criminals mistake you for another officer and end you.'
+    die()
+    
+    }else if (place == 'owner'){
+    alert('YOU ASK WHERE BOB IS')
+    place = 'where'
+    document.getElementById("text").innerHTML = 'The shopkeeper stares at you for a while, before drawing his sword and declaring his intentions to kill you.'
+    document.getElementById("button1").innerHTML = 'Stand still.'
+    document.getElementById("button2").innerHTML = 'Run away.'
+    
+}else if (place == 'tirecar'){
+    alert('YOU TRY TO COMANDEER THE POLICE CAR')
+    document.getElementById("text").innerHTML = 'The police officer uses his twelve years of ninja training to stop both your escape attempt and your heart.'
+    die()
+     
+}else if (place == 'hideonbus'){
+    alert('YOU PROVOKE THE DANGEROUS CRIMINAL')
+    document.getElementById("text").innerHTML = 'Unfortunately, this criminal has twelve years of training as a ninja, so breaks your spine and removes your wrists.'
+    die()
+    
+    }else if (place == 'where'){
+    alert('YOU RUN AWAY')
+    place = 'roof'
+    document.getElementById("text").innerHTML = 'You climb a ladder to the roof of the establishment, only just dodging the swinging blade of the angry ninja.'
+    document.getElementById("button1").innerHTML = 'Signal a helicopter passing overhead to rescue you.'
+    document.getElementById("button2").innerHTML = 'Jump down gracefully onto the street and get on a bus.'
+    
+}else if (place == 'jet'){
+    alert('YOU GET OFF THE JET')
+    place = 'caughtjet'
+    document.getElementById("text").innerHTML = 'As your feet touch the ground and the plane takes off without you, you realize what a foolish decision that was. The police soon arrive and you are handcuffed and thrown into the back of a car.'
+    document.getElementById("button1").innerHTML = 'Give up and wait to arrive at prison, or wherever you\'re going.'
+    document.getElementById("button2").innerHTML = 'Bribe the driver to let you out, with the billions of the car company\'s earnings you stole.'
+    // 8 ROUNDS
+  
+}else if (place == 'stop'){
+    alert('YOU DRIVE AWAY')
+    place = 'wheretodrive'
+    document.getElementById("text").innerHTML = 'As you floor the accelerator, you have a split-second decision to make.'
+    document.getElementById("button1").innerHTML = 'Drive through a short tunnel.'
+    document.getElementById("button2").innerHTML = 'Drive into a lake.'
+    
+}else if (place == 'wheretodrive'){
+    alert('YOU DRIVE THE BUS INTO A LAKE')
+    place = 'lake'
+    document.getElementById("text").innerHTML = 'Somehow you survive. You drag yourself onto the shore as the police surround you.'
+    document.getElementById("button1").innerHTML = 'Give yourself up.'
+    document.getElementById("button2").innerHTML = 'Dive back into the lake.'
+      
+}else if (place == 'quest'){
+    alert('YOU AGREE TO FIND THE BUMBLEMOLE')
+    place = 'searching'
+    document.getElementById("text").innerHTML = 'Next morning, you have a chance to search the prison facility for the Bumblemole. Where do you start the search?'
+    document.getElementById("button1").innerHTML = 'The basement.'
+    document.getElementById("button2").innerHTML = 'Question other prisoners about this strange creature.'
+        
+}else if (place == 'searching'){
+    alert('YOU ASK PEOPLE ABOUT THE BUMBLEMOLE')
+    place = 'privatecell'
+    document.getElementById("text").innerHTML = 'The prison warden hears of your inquiries, and you are taken to a new cell, alone. You may not see Honest Steve again.'
+    document.getElementById("button1").innerHTML = 'Try to leave the cell.'
+    document.getElementById("button2").innerHTML = 'Tell the prison warden that this is a mistake, that your real name is Jolene and you demand to be released.'
+          
+}else if (place == 'privatecell'){
+    alert('YOU TELL THE WARDEN YOUR REAL NAME IS JOLENE')
+    document.getElementById("text").innerHTML = 'It turns out London\'s most wanted criminal is named Jolene. He believes you however, and you are sentenced to death the next day.'
+    die()
+    
+}else if (place == 'lake'){
+    alert('YOU DIVE BACK INTO THE LAKE')
+    document.getElementById("text").innerHTML = 'You hide underwater for a few hours to hide from the police. When they finally leave, you realize you drowned.'
+    die()
+    
+}else if (place == 'caughtjet'){
+    alert('YOU BRIBE THE POLICE TO LET YOU OUT')
+    document.getElementById("text").innerHTML = 'As the police officer lets you out, you find yourself standing in the middle of a busy motorway.'
+    die()
+
+    }else if (place == 'wreckage'){
+    alert('YOU RUN AT THE POLICE OFFICERS AND FIGHT THEM')
+    document.getElementById("text").innerHTML = 'Unfortunately, in modern times, the London police force consists only of ninjas trained for twelve years in multiple martial arts.'
+    die()
+    
+ }else if (place == 'trust'){
+    alert('YOU IGNORE THE CRIMINAL AND TAKE YOUR BREAK')
+    place = 'explorepolice'
+    document.getElementById("text").innerHTML = 'You are free to explore the city for a few hours. Where do you take your break?'
+    document.getElementById("button1").innerHTML = 'East of the police station, visit a bakery.'
+    document.getElementById("button2").innerHTML = 'Explore the police station.'
+    
+ }else if (place == 'explorepolice'){
+    alert('YOU DECIDE TO EXPLORE THE POLICE STATION')
+    place = 'evilpolice'
+    document.getElementById("text").innerHTML = 'You go into the basement of the building, and see a few senior officers gathered around a map. You believe them to be criminals in disguise!'
+    document.getElementById("button1").innerHTML = 'Be the hero. Attack them.'
+    document.getElementById("button2").innerHTML = 'Run away.'
+    
+ }else if (place == 'evilpolice'){
+    alert('YOU RUN AWAY')
+    place = 'policecaptured'
+    document.getElementById("text").innerHTML = 'They easily catch you and inform the other officers that you are a crook in disguise. They put you in the back of a police car and begin to transport you to prison.'
+    document.getElementById("button1").innerHTML = 'Wait in the back of the car and see where you arrive.'
+    document.getElementById("button2").innerHTML = 'Use your police training to pick the lock on the car and jump out.'
+    
+	// 8 ROUNDS
+
+}else if (place == 'policecaptured'||place == 'beatninjas'){
+    alert('YOU JUMP OUT OF THE CAR')
+    document.getElementById("text").innerHTML = 'Unfortunately, the car was driving over a bridge when you jumped, and so you topple deep into a ravine to your death.'
+    die()
+    
+    }else if (place == 'roof'){
+    alert('YOU JUMP OFF THE ROOF')
+    place = 'otherbus'
+    document.getElementById("text").innerHTML = 'Somehow you survive the fall and get onto a passing bus. But suddenly you hear sirens. The ninja must have called the police on you!'
+    document.getElementById("button1").innerHTML = 'Put your head down and hope you\'re not seen.'
+    document.getElementById("button2").innerHTML = 'Get off the bus quickly.'
+    
+
+     }else if (place == 'arrested'){
+    alert('YOU PROVOKE THE DANGEROUS CRIMINAL')
+    document.getElementById("text").innerHTML = 'It was then your former crime partner revealed his twelve years of ninja training and brutally dismembered you with both his arms literally tied behind his back.'
+    die()
+    
+    }else if (place == 'heist'){
+    alert('YOU STEAL THE DIAMOND AND RETURN TO BASE')
+    document.getElementById("text").innerHTML = 'When you arrive, the criminal doesn\'t hesitate to end you and escape with the diamond.'
+    die()
+    
+    }else if (place == 'plan'){
+    alert('YOU ATTACK THE CRIMINAL')
+    document.getElementById("text").innerHTML = 'Sadly, this particular criminal had trained for twelve years as a ninja before he was arrested and stops your heart seconds into the fight.'
+    die()
+    
+ }else if (place == 'youninja'){
+    alert('YOU PICK UP THE NINJA SWORD')
+    document.getElementById("text").innerHTML = 'Your life\'s dream was accomplished for roughly four seconds until you realized you were holding the wrong side of the blade and it had sliced through your hands. It took you half a day to slowly, painfully die of blood loss.'
+    die()
    
+   }else if (place == 'bus'){
+    alert('YOU DRIVE THE BUS INTO A BUILDING')
+    place = 'crash'
+    document.getElementById("text").innerHTML = 'Everyone in the bus instantly dies on impact except for you.'
+    document.getElementById("button1").innerHTML = 'Leave the bus.'
+    document.getElementById("button2").innerHTML = 'Check for survivors.'
+   
+}else if (place == 'ninjataxi'){
+    alert('YOU RUN AWAY')
+    document.getElementById("text").innerHTML = 'You make it about three feet before the ninja reverses into you, killing you instantly.'
+    die()
+
+    }else if (place == 'call'){
+    alert('YOU DECIDE TO TRAIN AS A POLICE OFFICER FULL-TIME')
+    place = 'trust'
+    document.getElementById("text").innerHTML = 'One day a criminal is brought in. You are left unattended with him, and he tells you that you could be rich if you follow his instructions.'
+    document.getElementById("button1").innerHTML = 'Abandon your career and trust this criminal.'
+    document.getElementById("button2").innerHTML = 'Ignore him and take your break.' 
+   
+    }else if (place == 'thereitis'){
+    alert('YOU DECIDE TO TURN BACK')
+    document.getElementById("text").innerHTML = 'You turn around and come face to face with a prison guard, who claims you were trying to escape and sentences you to death.'
+    die()
+   
+   }else if (place == 'crash'){
+    alert('YOU CHECK THE WRECKAGE FOR SURVIVORS')
+    document.getElementById("text").innerHTML = 'The one survivor is an ilegally bred Peruvian Hammerhound, which, woken by the crash, attacks and brutally dismembers you.'
+    die()
+    
+    }else if (place == 'man'){
+    alert('YOU ASK FOR DIRECTIONS TO PERU')
+    place = 'direct'
+    document.getElementById("text").innerHTML = 'The man helpfully directs you to a shop and says you may find help there.'
+    document.getElementById("button1").innerHTML = 'Enter the shop.'
+    document.getElementById("button2").innerHTML = 'Go down a nearby alley.'
+    
+    }else if (place == 'direct' || place == 'hide'){
+    alert('YOU EXPLORE A NEARBY ALLEY')
+    place = 'alley'
+    document.getElementById("text").innerHTML = 'You discover a shady group of men hunched over pieces of paper.'
+    document.getElementById("button1").innerHTML = 'Cheerily greet them.'
+    document.getElementById("button2").innerHTML = 'Throw a shoe at them.'
+    
+    }else if (place == 'register'){
+    alert('YOU GO TO NEW YORK ON FOOT')
+    document.getElementById("text").innerHTML = 'Manhattan is a very long walk from the middle of London. You don\'t make it.'
+    die()
+    
+    }else if (place == 'cardgame'){
+    alert('YOU PLAY THE FOUR OF HEARTS')
+    place = 'losecards'
+    document.getElementById("text").innerHTML = 'Your Four of Hearts loses to one of the prisoner\'s Three of Hearts. As the prisoner gets up to claim his winnings, you see a small pink creature behind him.'
+    document.getElementById("button1").innerHTML = 'Chase the Bumblemole up the stairs.'
+    document.getElementById("button2").innerHTML = 'Ignore the creature and play another card game.'
+    
+    }else if (place == 'losecards'){
+    alert('YOU IGNORE THE BUMBLEMOLE')
+    document.getElementById("text").innerHTML = 'The Bumblemole climbs up the boiler, and accidentally moves a few levers. The machine overheats, explodes, and kills everyone in the prison.'
+    die()
+    
+    }else if (place == 'alley'){
+    alert('YOU THROW A SHOE AT THE GROUP')
+    place = 'criminals'
+    document.getElementById("text").innerHTML = 'They turn to face you, and you recognize as a group of wanted criminals.'
+    document.getElementById("button1").innerHTML = 'Run away.'
+    document.getElementById("button2").innerHTML = 'Throw another shoe at them.'
+    }else if (place == 'criminals'){
+    alert('YOU THROW ANOTHER SHOE AT THE CRIMINALS')
+    place = 'manhole'
+    document.getElementById("text").innerHTML = 'One catches the shoe and throws it back at you. You stumble and fall into an open manhole.'
+    document.getElementById("button1").innerHTML = 'Try to climb back up the wall.'
+    document.getElementById("button2").innerHTML = 'Search for an alternate exit.'
+    }else if (place == 'manhole'){
+    alert('YOU SEARCH THE SEWERS FOR AN ESCAPE')
+    place = 'sewer'
+    document.getElementById("text").innerHTML = 'You climb a ladder and find yourself in front of a jewelry shop, with a bus crashed into the side of it. The police will be here shortly.'
+    document.getElementById("button1").innerHTML = 'Make a run for it.'
+    document.getElementById("button2").innerHTML = 'Enter the jewelry shop.'
+    
+    }else if (place == 'sewer'){
+    alert('YOU ENTER THE JEWELRY SHOP')
+    place = 'shop1'
+    document.getElementById("text").innerHTML = 'You walk into the shop, and find the criminals from earlier already escaping the scene. They invite you to join their criminal gang.'
+    document.getElementById("button1").innerHTML = 'Join them.'
+    document.getElementById("button2").innerHTML = 'Decline their kind request.'
+
+    }else if (place == 'shop1'){
+    alert('YOU DO NOT JOIN THE CRIMINAL GANG')
+    document.getElementById("text").innerHTML = 'The criminals shrug, and kill you. No witnesses.'
+    die()
+        
+}else if (place == 'police1'){
+    alert('YOU RUN AWAY')
+    place = 'hide'
+    document.getElementById("text").innerHTML = 'The police car almost catches up with you but you duck behind a building and escape.'
+    document.getElementById("button1").innerHTML = 'Wait until the police pass then go back out into the street.'
+    document.getElementById("button2").innerHTML = 'Continue down the alleyway.'
+    
+       
+}else if (place == 'ninja'){
+    alert('YOU RUN AWAY')
+    place = 'escaped'
+    document.getElementById("text").innerHTML = 'The ninja is fast, but luckily you manage to escape him.'
+    document.getElementById("button1").innerHTML = 'Duck into an alleyway and wait for the ninja to catch up, then finish him off.'
+    document.getElementById("button2").innerHTML = 'Just to be safe, slide underneath the descending door of an expensive car storage unit.'
+    
+    }else if (place == 'escaped'){
+    alert('YOU MANAGE TO ENTER AN EXPENSIVE CAR STORAGE UNIT')
+    place = 'storage'
+    document.getElementById("text").innerHTML = 'The lights flicker on and you find yourself in a room with a dozen cars, each worth more than the country.'
+    document.getElementById("button1").innerHTML = 'Reopen the door and drive one of the cars out.'
+    document.getElementById("button2").innerHTML = 'Leave the almost priceless collection and escape through a door at the back of the warehouse.'
+    
+    }else if (place == 'storage'){
+    alert('YOU LEAVE THE WAREHOUSE')
+    place = 'lobby'
+    document.getElementById("text").innerHTML = 'You find yourself in the front of the car dealership.'
+    document.getElementById("button1").innerHTML = 'Take the money from the cash register.'
+    document.getElementById("button2").innerHTML = 'Walk into the street before anyone sees you, and get on a bus.'
+    
+    }else if (place == 'lobby'){
+    alert('YOU BOARD A BUS')
+    place = 'bus2'
+    document.getElementById("text").innerHTML = 'After a few minutes you hear the sound of police sirens. They could have caught up with you for entering the car warehouse!'
+    document.getElementById("button1").innerHTML = 'Put your head down and hope you\'re not seen.'
+    document.getElementById("button2").innerHTML = 'Exit the bus quickly.'
+    
+    }else if (place == 'bus2' || place == 'otherbus'){
+    alert('YOU TRY TO GET OFF THE BUS')
+    place = 'policecar'
+    document.getElementById("text").innerHTML = 'The driver won\'t stop the bus, so you smash a window and jump out onto the street. The police car screeches to a stop right in front of you.'
+    document.getElementById("button1").innerHTML = 'Try to escape.'
+    document.getElementById("button2").innerHTML = 'Enter the car, knock out the police officer then drive away the police car.'
+    
+    }else if (place == 'policecar'){
+    alert('YOU TRY TO KNOCK OUT THE POLICE OFFICER')
+    place = 'tiedup'
+    document.getElementById("text").innerHTML = 'Coincidentally, this officer has also had twelve years of ninja training and easily takes you out.'
+    document.getElementById("button1").innerHTML = 'Wait, tied up, in the back of the car until you arrive at the police station.'
+    document.getElementById("button2").innerHTML = 'Try to escape.'
+    
+    // 8 ROUNDS
+    
+}else if (place == 'ninjabag'||place == 'otherninja'){
+    alert('YOU EVENTUALLY ARRIVE AT THE NINJA BASE')
+    place = 'infiniltrate'
+    document.getElementById("text").innerHTML = 'Wearing full ninja gear, you infiniltrate the ninja base. You see them plotting to assasinate Honest Steve, the new mayor of London.'
+    document.getElementById("button1").innerHTML = 'Help with the plan to assasinate Honest Steve.'
+    document.getElementById("button2").innerHTML = 'Try to blend in, and stay hidden.'
+
+}else if (place == 'infiniltrate'){
+    alert('YOU TRY TO BLEND IN WITH THE NINJAS')
+    place = 'suddenpolice'
+    document.getElementById("text").innerHTML = 'Suddenly, there is an explosion as a group of police enter the ninja base. It looks like you did too good of a job acting like a ninja, as one of the police officers arrests you!'
+    document.getElementById("button1").innerHTML = 'Attack the police.'
+    document.getElementById("button2").innerHTML = 'Reveal to them your identity; they may let you go if they believe you are not a ninja!.'
+
+}else if (place == 'bakery'){
+    alert('YOU RETURN TO THE POLICE STATION')
+    place = 'mugged'
+    document.getElementById("text").innerHTML = 'On your way to the police station, you unfortunately encounter some ninjas, who, seeing that you have left the bakery, demand you give them bread for your life.'
+    document.getElementById("button1").innerHTML = 'Give them bread.'
+    document.getElementById("button2").innerHTML = 'Attack the ninjas.'
+
+}else if (place == 'cellescape'){
+    alert('YOU TRY TO ESCPAPE THE PRISON')
+    place = 'corridor'
+    document.getElementById("text").innerHTML = 'Heading for the prison exit, you see a small pink creature running alongside you. It must be the Bumblemole!'
+    document.getElementById("button1").innerHTML = 'Pick it up and keep running.'
+    document.getElementById("button2").innerHTML = 'Ignore it and follow the corridor. You cannot waste time!'
+
+}else if (place == 'corridor'){
+    alert('YOU IGNORE THE BUMBLEMOLE')
+    document.getElementById("text").innerHTML = 'You smash through a window and find yourself on the prison grounds. You arrive just in time to see Honest Steve board a small plane, which quickly departs. You are soon met with many guards, and you are sentenced to death for attempted escape.'
+    die()
+
+}else if (place == 'newcell'){
+    alert('YOU OFFER THE GUARD A CHANCE TO ESCAPE PRISON')
+    document.getElementById("text").innerHTML = 'The guard is confused as to why he would want to escape prison, and so sentences you to death.'
+    die()
+
+}else if (place == 'prisonbasement'){
+    alert('YOU TALK TO SOME OF THE OTHER INMATES')
+    document.getElementById("text").innerHTML = 'You try to talk them about the Bumblemole, until one reveals both a knife and twelve years of ninja training.'
+    die()
+
+}else if (place == 'mugged'){
+    alert('YOU ATTACK THE NINJAS')
+	place = 'beatninjas'
+    document.getElementById("text").innerHTML = 'Infuriated by their attempted theft of your nonexistent bread, you go into a mad frenzy and murder every ninja there. Soon enough the police, your old colleagues, arrest you and you are handcuffed in a police car by the next hour.'
+    document.getElementById("button1").innerHTML = 'Wait in the back of the police car to see where you are being taken.'
+    document.getElementById("button2").innerHTML = 'Use your police training to pick the lock on the vehicle door and jump out.'
+	// 9 ROUNDS
+}else if (place == 'suddenpolice'){
+    alert('YOU REVEAL YOUR TRUE IDENTITY TO THE POLICE')
+    place = 'tiedup2'
+    document.getElementById("text").innerHTML = 'They realize you are not a ninja, and are about to let you go, until one of them recognizes you from one of your many previous crimes.'
+    document.getElementById("button1").innerHTML = 'Give yourself up and wait in the police car for you to be taken to the police station.'
+    document.getElementById("button2").innerHTML = 'Reveal to them that you are, in fact, a police officer in disguise and you are all on the same team.'
+
+	// 8 ROUNDS
+
+}else if (place == 'planefly'){
+    alert('YOU ASK HONEST STEVE WHERE THE PLANE GOES TO')
+    document.getElementById("text").innerHTML = 'Steve tells you that the plane is heading towards Africa. He has friends there that will help them. You smile. This brings you one step closer to Peru, and Honest Bob.'
+    win()
+
+}else if (place == 'refuge'){
+    alert('YOU SEEK OUT THE NINJAS')
+    document.getElementById("text").innerHTML = 'Actively seeking out ninjas is a bad idea. A very bad idea. The good news is you found them.'
+    die()
+
+}else if (place == 'tiedup2'){
+    alert('YOU TELL THEM THAT YOU ARE, IN FACT, A POLICE OFFICER TOO')
+    document.getElementById("text").innerHTML = 'They see through you obvious lies and one of them shoots you for wasting their time and directly lying to an authority figure.'
+    die()
+
+    }else if (place == 'tiedup'){
+    alert('YOU TRY TO ESCAPE AGAIN')
+    document.getElementById("text").innerHTML = 'Your opponent\'s ninja skills seem to still be present. You know because when you tried to take him out, he ran you through with a metal pole that he had lying on the passenger seat.'
+    die()
    }
 }
 
@@ -115,12 +812,12 @@ function die(){
 }
 function win(){
 	place = 'win'
-    document.getElementById("warning").innerHTML = 'THANKS FOR PLAYING THE GAME OF MAADHAV!'
-    document.getElementById("button1").innerHTML = 'YOU ACHEIVED'
-    document.getElementById("button2").innerHTML = 'SPIRITUAL ENLIGHTENMENT'
-    document.getElementById("count").innerHTML = 'You survived for '+count+' rounds!'
+    document.getElementById("warning").innerHTML = 'YOU SUCCESSFULLY FOUND YOUR WAY OUT OF LONDON ALIVE!'
+    document.getElementById("button1").innerHTML = 'YOU'
+    document.getElementById("button2").innerHTML = 'ESCAPED'
+    document.getElementById("count").innerHTML = 'You survived for '+count+' rounds in London!'
 
-document.getElementById("done").innerHTML = 'THERE IS NO SEQUEL'
+document.getElementById("done").innerHTML = 'CONTINUE TO AFRICA'
 
 
 }
