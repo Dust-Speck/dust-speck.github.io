@@ -1,0 +1,605 @@
+<html>
+<h2>Stage Two: Egypt</h2>
+<p id = 'text'>The plane lands in Egypt, and you, Honest Steve and the Pilot exit the plane. Honest Steve and the Pilot start heading to the west.</p>
+<button class = 'button blue' id = 'button1' onclick = 'button1(),survive()'>Follow them.</button>
+<button class = 'button red' id = 'button2' onclick = 'button2(),survive()'>Search the plane.</button>
+<p id = 'warning'></p>
+<h3 id = 'count'>Your aim is to find Honest Bob, who lives in Peru.</h3>
+<a id = 'done' href="To%20Peru%20Stage%203.html"></a>
+
+<style>
+.button {
+  background-color: none /* Green */ 
+  border: none;
+  color: white;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.blue {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008f0b;
+}
+
+.blue:hover {
+  background-color: #008f0b;
+  color: white;
+}
+
+.red {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #ffcc00;
+}
+
+.red:hover {
+  background-color: #ffcc00;
+  color: white;
+}: white;
+}
+</style>
+
+<script>
+//http://www.createawebsite.cc
+var place = 'start'
+var count = 0
+var pilotalive = 1
+function button1(){
+  if (place == 'start'){
+  	alert('YOU FOLLOW HONEST STEVE')
+    place = 'consume'
+    document.getElementById("text").innerHTML = 'After hours of walking, you realize you have no supplies and are in the middle of a vast desert. You consider which of your fellow travelers\' skills are most useful.'
+    document.getElementById("button1").innerHTML = 'Consume the Pilot.'
+    document.getElementById("button2").innerHTML = 'Consume Honest Steve.'
+  
+}else if (place == 'back'){
+    alert('YOU TAKE THE BOOK')
+    place = 'book'
+    document.getElementById("text").innerHTML = 'You read the book thoroughly, and find that it is an instruction manual for how to fly this particular model of plane.'
+    document.getElementById("button1").innerHTML = 'Go to the front of the plane.'
+    document.getElementById("button2").innerHTML = 'Take the food.'
+
+}else if (place == 'piloteatensand'){
+    alert('YOU GET OUT THE CAR')
+    document.getElementById("text").innerHTML = 'You exit the vehicle and meet a similar fate.'
+    die()
+
+}else if (place == 'book'){
+    alert('YOU GO TO THE FRONT OF THE PLANE')
+    place = 'buttons2'
+    document.getElementById("text").innerHTML = 'According to the book, this plane is a combat-ready jet.'
+    document.getElementById("button1").innerHTML = 'Press the red button.'
+    document.getElementById("button2").innerHTML = 'Press the green button.'
+
+}else if (place == 'backpackman'){
+    alert('YOU STOP THE CAR IN FRONT OF THE MAN')
+    place = 'backpackman2'
+    document.getElementById("text").innerHTML = 'When he sees you coming, he gasps and drops the backpack, before running away.'
+    document.getElementById("button1").innerHTML = 'Get Steve to look inside, while you and the Pilot back away.'
+    document.getElementById("button2").innerHTML = 'Get the Pilot to look inside, while you and Steve back away.'
+
+}else if (place == 'backpackman2'){
+    alert('STEVE OPENS THE BAG')
+    document.getElementById("text").innerHTML = 'As soon as Steve touches the bag, it bursts open and a baby alligator bursts out, which is quick to consume the three of you.'
+    die()
+
+ }else if (place == 'consume'){
+    alert('YOU CONSUME THE PILOT')
+    place = 'eatpilot'
+pilotalive = 0
+    document.getElementById("text").innerHTML = 'The Pilot didn\'t seem that skilled anyway. You probably could have flown that plane. You soon find an oasis, with a large source of water.'
+    document.getElementById("button1").innerHTML = 'Drink from the water.'
+    document.getElementById("button2").innerHTML = 'Throw a hand grenade into the water (you brought a few).'
+
+}else if (place == 'plane'){
+    alert('YOU GO TO THE FRONT OF THE PLANE')
+    place = 'buttons1'
+    document.getElementById("text").innerHTML = 'Not knowing anything about planes, you sit down in the largest seat and look at the controls.'
+    document.getElementById("button1").innerHTML = 'Press the red button.'
+    document.getElementById("button2").innerHTML = 'Press the green button.'
+
+}else if (place == 'buttons1'||place == 'buttons2'){
+    alert('YOU PRESS THE RED BUTTON')
+    die()
+
+ }else if (place == 'fly'){
+    alert('YOU CHECK THE BOOK')
+    document.getElementById("text").innerHTML = 'As soon as you take your hands of the controls, the plane falls into a spiral and crashes into the desert, killing you instantly.'
+    die()
+   
+ }else if (place == 'launch'){
+    alert('YOU LAND THE PLANE')
+    place = 'poisoned'
+    document.getElementById("text").innerHTML = 'You land the plane and find Honest Steve and the Pilot both alive, however the Pilot seems to be suffering serious radiation poisoning.'
+    document.getElementById("button1").innerHTML = 'Help him back into the plane, then continue your journey. This will make it easier for you to find him again when you reach civilisation.'
+    document.getElementById("button2").innerHTML = 'Leave him. You\'re not sure if radiation poisoning like this is contagious.'
+     
+ }else if (place == 'poisoned'||place=='radiate'){
+    alert('YOU HELP THE PILOT INTO THE PLANE')
+    place = 'knife'
+pilotalive = 2
+    document.getElementById("text").innerHTML = 'He thanks you for helping him, and offers you his pocket knife. It may help you on your journey.'
+    document.getElementById("button1").innerHTML = 'Insist that he keep it. The alligators could return.'
+    document.getElementById("button2").innerHTML = 'Take it. It could help you. Besides, he won\'t have much use for it for much longer.'
+      
+ }else if (place == 'knife'){
+    alert('YOU REJECT THE KNIFE AND CONTINUE YOUR JOURNEY')
+    place = 'alman1'
+    document.getElementById("text").innerHTML = 'After more walking, you encounter a strange man wearing some form of cloak decorated with alligator scales.'
+    document.getElementById("button1").innerHTML = 'Attack him.'
+    document.getElementById("button2").innerHTML = 'Ask him where the nearest settlement is.'
+     
+ }else if (place == 'alman1'){
+    alert('YOU ATTACK THE ALLIGATOR MAN')
+    document.getElementById("text").innerHTML = 'You wish you had accepted the weapon as the strange man defeats you in combat.'
+    die()
+    
+ }else if (place == 'alman2'){
+    alert('YOU ATTACK THE ALLIGATOR MAN')
+place = 'defeat'
+    document.getElementById("text").innerHTML = 'Using the knife, you easily defeat the strange man in combat.'
+    document.getElementById("button1").innerHTML = 'Take his alligator cloak, it may offer some protection from the harsh sun.'
+    document.getElementById("button2").innerHTML = 'Take a strange medallion that was hanging around his neck.'
+ 
+ }else if (place == 'defeat'){
+    alert('YOU TAKE THE ALLIGATOR CLOAK')
+place = 'cloak'
+    document.getElementById("text").innerHTML = 'You and Honest Steve alternate wearing the cloak, and with it the heat of the desert is slightly lessened. With it you make your way to a small desert city you see on the horizon, which soon you reach.'
+    document.getElementById("button1").innerHTML = 'Explore the desert city.'
+    document.getElementById("button2").innerHTML = 'Go around the city and observe the perimeter.'
+ 
+ }else if (place == 'cloak'||place=='outskirts'){
+    alert('YOU EXPLORE THE DESERT CITY')
+    document.getElementById("text").innerHTML = 'You are soon confronted by Egyptian thieves, who see your alligator cloak, which sells for a lot apparently. They take from you both the cloak and your life.'
+    die()
+ 
+ }else if (place == 'city'){
+    alert('YOU EXPLORE THE DESERT CITY')
+place = 'trailer'
+    document.getElementById("text").innerHTML = 'You and Honest Steve venture through the city, and eventually find, a man with a boat in a trailer.'
+    document.getElementById("button1").innerHTML = 'Ask him about the boat. It may be your only way out of the city!'
+    document.getElementById("button2").innerHTML = 'Knock out the man then steal the trailer.'
+ 
+ }else if (place == 'trailer'){
+    alert('YOU ASK THE MAN ABOUT THE BOAT')
+place = 'problem'
+    document.getElementById("text").innerHTML = 'The man says he\'d love to take you for a ride on his boat, but he doesn\'t have a car so the trailer is stuck there.'
+    document.getElementById("button1").innerHTML = 'Steal a car.'
+    document.getElementById("button2").innerHTML = 'A boat isn\'t that great. Ask around to see if you can find a plane.'
+ 
+ }else if (place == 'problem'){
+    alert('YOU STEAL A CAR')
+place = 'stolencar'
+    document.getElementById("text").innerHTML = 'You search the city for a while before you luckily find a car with the doors open and the key inside. What luck.'
+    document.getElementById("button1").innerHTML = 'Bring the car to the boat man.'
+    document.getElementById("button2").innerHTML = 'Use the car to get to Peru. You don\'t even need a boat anymore!'
+ 
+ }else if (place == 'stolencar'){
+    alert('YOU BRING THE CAR TO THE BOAT MAN')
+place = 'tribals'
+    document.getElementById("text").innerHTML = 'The man is overjoyed, and reveals his life ambition to sail this boat to South America. What luck! Together, you start the drive to the coastline. Soon you reach a group of strange people, evidently in need of a lift.'
+    document.getElementById("button1").innerHTML = 'Stop the car and offer them a ride. They can fit in the back of the trailer!'
+    document.getElementById("button2").innerHTML = 'Keep driving.'
+ 
+ }else if (place == 'giveitup'){
+    alert('YOU GIVE HIM YOUR CLOAK AND GET INTO THE CAR')
+place = 'tribals2'
+    document.getElementById("text").innerHTML = 'The man is overjoyed, and when you are in the car he reveals his life ambition to sail this boat to South America. What luck! Together, you start the drive to the coastline. Soon you reach a group of strange people, evidently in need of a lift.'
+    document.getElementById("button1").innerHTML = 'Stop the car and offer them a ride. They can fit in the back of the trailer!'
+    document.getElementById("button2").innerHTML = 'Keep driving.'
+
+ }else if (place == 'tribals2'){
+    alert('YOU OFFER THE GROUP A LIFT')
+place = 'alift'
+    document.getElementById("text").innerHTML = 'They are very grateful, so much so that they gift to you a gold medallion. After a while driving, you encounter a plane. You recognize it as the one you arrived in the desert in. You must have driven in a full circle!'
+    document.getElementById("button1").innerHTML = 'Tell the driver to stop, you have to rescue the Pilot! He could still be alive!'
+    document.getElementById("button2").innerHTML = 'The Pilot has probably already perished. Keep driving.'
+ 
+}else if (place == 'tribals'){
+    alert('YOU OFFER THE GROUP A LIFT')
+place = 'alift'
+    document.getElementById("text").innerHTML = 'They are very grateful, and admire the gold medallion you took from the alligator man. After a while driving, you encounter a plane. You recognize it as the one you arrived in the desert in. You must have driven in a full circle!'
+    document.getElementById("button1").innerHTML = 'Tell the driver to stop, you have to rescue the Pilot! He could still be alive!'
+    document.getElementById("button2").innerHTML = 'The Pilot has probably already perished. Keep driving.'
+ 
+}else if (place == 'alift'){
+    alert('YOU STOP NEXT TO THE PLANE AND SEARCH FOR THE PILOT')
+place = 'cure'
+    document.getElementById("text").innerHTML = 'You find the Pilot, dying, and bring him to the car. The group of people you picked up reveal their tribal backgrounds, and quickly brew a cure from items they have in their pockets. It is bright green and occasionally glows.'
+    document.getElementById("button1").innerHTML = 'Deliver the cure to the Pilot.'
+    document.getElementById("button2").innerHTML = 'Drink the cure.'
+ 
+}else if (place == 'cure'){
+    alert('YOU DELIVER THE CURE TO THE PILOT')
+place = 'mechanics'
+    document.getElementById("text").innerHTML = 'The Pilot makes a quick recovery, and Steve thanks the tribal people for saving his friend. Another day into driving, the car stops and makes a dying noise. The Pilot offers to take a look at it.'
+    document.getElementById("button1").innerHTML = 'Insist that the Pilot should be resting, and try to fix the car yourself.'
+    document.getElementById("button2").innerHTML = 'Thank the Pilot for his mechanical help, and allow him to fix the car.'
+ 
+ }else if (place == 'mechanics'){
+    alert('YOU TRY TO FIX THE CAR')
+    document.getElementById("text").innerHTML = 'You realize you have no mechanical experience when the car makes a high-pitched squealing noise, overheats, explodes, and kills everyone in a mile radius. That was foolish.'
+    die()
+
+ }else if (place == 'grenade'){
+    alert('YOU GET IN THE CAR')
+	if (pilotalive == 1) {
+place = 'drive'
+    document.getElementById("text").innerHTML = 'Luckily, the Pilot has experience with this sort of thing. In no time he gets the car up and running again. You wonder what you would do without him.'
+    document.getElementById("button1").innerHTML = 'Let the Pilot drive.'
+    document.getElementById("button2").innerHTML = 'Let Honest Steve drive.'
+}else{
+    document.getElementById("text").innerHTML = 'Neither you nor Honest Bob have any experience with getting a car working again. You wish you had kept the Pilot alive, especially when you realize sand has got in the engine, which overheats when you press a button, leading to an explosion killing both of you.'
+    die()}
+
+
+ }else if (place == 'drive'){
+    alert('YOU LET THE PILOT DRIVE THE CAR')
+    document.getElementById("text").innerHTML = 'The Pilot is both an excellent pilot and an excellent mechanic. One thing he is not excellent at is driving. He drives the car into the oasis, and the three of you drown.'
+    die()
+
+ }else if (place == 'eatsteve'){
+    alert('YOU APOLOGISE')
+    place = 'lake'
+    document.getElementById("text").innerHTML = 'Honest Steve forgives your attempted homicide and you continue. Soon you reach an oasis, with a large source of water.'
+    document.getElementById("button1").innerHTML = 'Drink from the water.'
+    document.getElementById("button2").innerHTML = 'Throw a hand grenade into the water (you brought a few).'
+
+ }else if (place == 'survived'){
+    alert('YOU ASK THE MAN WHAT IS IN HIS BACKPACK')
+    place = 'radiate'
+    document.getElementById("text").innerHTML = 'He drops his bag, which opens to reveal a mini nuclear warhead. Jolted to life by the impact, it explodes, blasting you, Steve and the dead alligator high into the air. When you hit the ground, you hear a gasp. It\'s the pilot! He climbs out of the alligator carcass. The radiation must have revived him! It is clear he suffers from radiation poisoning, however.'
+    document.getElementById("button1").innerHTML = 'Help him back into the plane, then continue your journey. This will make it easier for you to find him again when you reach civilisation.'
+    document.getElementById("button2").innerHTML = 'Leave him. You\'re not sure if radiation poisoning like this is contagious.'
+     
+ }else if (place == 'talk'||place == 'distrust'){
+    alert('YOU TALK TO THE STRANGE ALLIGATOR MAN')
+    place = 'medal'
+    document.getElementById("text").innerHTML = 'You talk for an hour or two, and as you reach the city, he offers you a medallion, seemingly made of gold.'
+    document.getElementById("button1").innerHTML = 'Ask for his alligator cloak instead. It may offer protection from the harsh sun.'
+    document.getElementById("button2").innerHTML = 'Gladly accept.'
+        
+ }else if (place == 'medal'){
+    alert('YOU ASK FOR HIS ALLIGATOR CLOAK')
+    document.getElementById("text").innerHTML = 'He is incredibly offended that you both declined his generous offer and instead asked for his prized cloak. You feel the sand shift beneath your feet as an army of alligators arise.'
+    die()
+          
+ }else if (place == 'voyage'){
+    alert('YOU OFFER TO TAKE OVER DRIVING THE BOAT')
+    document.getElementById("text").innerHTML = 'You take the steering mechanism of the boat, and enjoy your time on the ocean. Until you are distracted by a seagull, and you steer into a large rock jutting out of the ocean, killing everyone onboard instantly.'
+    die()
+     
+}else if (place == 'savewho'){
+    alert('YOU TRY TO SAVE HONEST STEVE')
+    place = 'radiate'
+    document.getElementById("text").innerHTML = 'You push Honest Steve back. The bomb explodes, and you see the Pilot fly over your heads and land some distance behind you. You rush to his side, but it is clear he suffers from extreme radiation poisoning.'
+    document.getElementById("button1").innerHTML = 'Help him back into the plane, then continue your journey. This will make it easier for you to find him again when you reach civilisation.'
+    document.getElementById("button2").innerHTML = 'Leave him. You\'re not sure if radiation poisoning like this is contagious.'
+    
+ }else if (place == 'lake'||place == 'eatpilot'){
+    alert('YOU DRINK FROM THE WATER')
+    document.getElementById("text").innerHTML = 'You realize too late that the water is infested with alligators.'
+    die()
+
+ }else if (place == 'catchup'){
+    alert('YOU JUMP ABOARD THE TRAILER')
+    document.getElementById("text").innerHTML = 'When the man sees you aboard his trailer, he reveals a shotgun and fires backwards.'
+    die()
+
+ }else if (place == 'broke'){
+    alert('YOU GET OUT OF THE CAR')
+    document.getElementById("text").innerHTML = 'You realize too late that the reason the car stopped was because you had driven into a pit of quicksand. When you get out you are instantly engulfed.'
+    die()
+
+ }else if (place == 'above'){
+    alert('YOU LEAP OUT OF THE PLANE MID-FLIGHT')
+    document.getElementById("text").innerHTML = 'You slowly descend, right into the open jaws of one of the alligators.'
+    die()
+   
+ }else if (place == 'abandon'){
+    alert('YOU FIDDLE WITH THE MECHANICS ON THE DOOR')
+    document.getElementById("text").innerHTML = 'You half-heartedly turn gears and unscrew screws until, by surpise, the door opens with a deep groan. As you walk through, it promptly falls back down and crushes you. You wish you had the mechanical skills of the Pilot...'
+    die()
+       
+   }
+}
+
+
+
+function button2(){
+  if (place == 'start'){
+  	alert('YOU SEARCH THE PLANE')
+    place = 'plane'
+    document.getElementById("text").innerHTML = 'The plane is almost completely empty.'
+    document.getElementById("button1").innerHTML = 'Go to the front of the plane.'
+    document.getElementById("button2").innerHTML = 'Go to the back of the plane.'
+    
+ }else if (place == 'plane'){
+    alert('YOU GO TO THE BACK OF THE PLANE')
+    place = 'back'
+    document.getElementById("text").innerHTML = 'At the back of the plane, you find a dusty book and some food.'
+    document.getElementById("button1").innerHTML = 'Take the book.'
+    document.getElementById("button2").innerHTML = 'Take the food.'
+   
+ }else if (place == 'lake'||place == 'eatpilot'){
+    alert('YOU THROW A HAND GRENADE INTO THE WATER')
+    place = 'grenade'
+    document.getElementById("text").innerHTML = 'You hear the explosion, then you drink from the lake. It is then you realize an abandonded car, sitting by the edge of the oasis.'
+    document.getElementById("button1").innerHTML = 'Get in the car.'
+    document.getElementById("button2").innerHTML = 'Continue your journey.'
+
+ }else if (place == 'trailer'){
+    alert('YOU KNOCK OUT THE MAN AND STEAL THE TRAILER')
+    document.getElementById("text").innerHTML = 'Using his twelve years of ninja training, Steve easily takes out the man. It is then you realize you can\'t move the trailer without a car. You try to push it, but soon die of exhaustion.'
+    die()
+
+ }else if (place == 'grenade'){
+    alert('YOU CONTINUE YOUR JOURNEY')
+    document.getElementById("text").innerHTML = 'Another day walking, and you begin to wish you took the car. You get so tired that when alligators attack you have no defence.'
+    die()
+
+ }else if (place == 'cure'){
+    alert('YOU FOOLISHLY CONSUME THE CURE')
+    document.getElementById("text").innerHTML = 'You realize it was a mistake, but it has no effect for a while. Until, a day later, when you spontaneously combust without warning.'
+    die()
+
+ }else if (place == 'defeat'){
+    alert('YOU TAKE THE STRANGE MEDALLION')
+    document.getElementById("text").innerHTML = 'You take the medallion, and are quite proud with your find, but as the day grows long it weighs you down and gets very hot, and ultimately leads to your demise.'
+    die()
+ 
+}else if (place == 'mechanics'){
+    alert('THE PILOT FIXES THE CAR')
+place = 'voyage'
+    document.getElementById("text").innerHTML = 'The Pilot fixes and improves the car, which now moves twice as fast, gliding across the desert sand. In a few days, you have crossed half of Africa and find yourself on the coast. You and the rest of your newfound "gang" unload the boat from the trailer and put it in the water. You, the Pilot, Honest Steve, the Boat Guy, and all of the tribal people all easily fit in the boat, and you begin your voyage to South America.'
+    document.getElementById("button1").innerHTML = 'Offer to take over driving the boat.'
+    document.getElementById("button2").innerHTML = 'Relax and plan the voyage across the Atlantic Ocean.'
+ 
+}else if (place == 'voyage'){
+    alert('YOU PLAN THE CROSS OVER THE ATLANTIC OCEAN')
+    document.getElementById("text").innerHTML = 'You and one of the tribal people find the best route to cross the ocean, avoiding tall rocks and sea monsters. This brings you one step closer to Peru, and Honest Bob.'
+    win()
+ 
+ }else if (place == 'back'||place == 'book'){
+    alert('YOU TAKE THE FOOD')
+    document.getElementById("text").innerHTML = 'As you leave the plane with the food, you feel like you are being watched. You turn around and find a swarm of alligators approaching you. They must want the food.'
+    die()
+   
+}else if (place == 'alift'){
+    alert('YOU DRIVE PAST THE PLANE')
+    document.getElementById("text").innerHTML = 'Once you drive past the plane, you see a figure in the desert. You get close and realize it is the Pilot! You approach him, but he looks different. The nuclear radiation must have had a strange effect on him. You tell the driver to reverse away quickly, but it is too late. The Pilot gets you.'
+    die()
+ 
+ }else if (place == 'buttons1'){
+    alert('YOU PRESS THE GREEN BUTTON')
+    document.getElementById("text").innerHTML = 'You hear the engines fire up. Not knowing anything about planes, you sit there as they get louder and louder until they overheat and explode, killing you instantly.'
+    die()
+   
+ }else if (place == 'tribals'||place == 'tribals2'){
+    alert('YOU KEEP DRIVING')
+    document.getElementById("text").innerHTML = 'As you pass them, they jump aboard and reveal their spears. They comandeer your vehicle.'
+    die()
+   
+ }else if (place == 'medal'){
+    alert('YOU TAKE THE MEDALLION')
+place = 'city'
+    document.getElementById("text").innerHTML = 'He bids you farewell, and makes his way past you into the bustling streets of the desert city.'
+    document.getElementById("button1").innerHTML = 'Explore the desert city.'
+    document.getElementById("button2").innerHTML = 'Go around the city and observe the perimeter.'
+ 
+ }else if (place == 'city'){
+    alert('YOU VENTURE AROUND THE CITY')
+    document.getElementById("text").innerHTML = 'With no protection from the desert sun outside of the city, you fall and die. You wish you had a cloak like the alligator man\'s.'
+    die()
+ 
+ }else if (place == 'stolencar'){
+    alert('YOU USE THE CAR TO GET TO PERU')
+    document.getElementById("text").innerHTML = 'You seem to have forgotten the ocean between Egypt and Peru.'
+    die()
+ 
+ }else if (place == 'cloak'){
+    alert('YOU VENTURE AROUND THE CITY')
+place = 'outskirts'
+    document.getElementById("text").innerHTML = 'You walk around the outskirts of the city, your cloak protecting you from the harsh sun. You soon see a car driving through the desert, attached to a trailer with a large boat atop it.'
+    document.getElementById("button1").innerHTML = 'Explore the rest of the city.'
+    document.getElementById("button2").innerHTML = 'Chase the boat, it may be your only way out of the country!'
+ 
+ }else if (place == 'distrust'){
+    alert('YOU ATTACK THE ALLIGATOR MAN')
+    document.getElementById("text").innerHTML = 'You sneak up behind him, but before you get close, alligators burst up from the sand and brutally dismember you.'
+    die()
+       
+ }else if (place == 'outskirts'){
+    alert('YOU CHASE THE BOAT')
+place = 'catchup'
+    document.getElementById("text").innerHTML = 'You again thankful for the protection of the alligator cloak. With it you are able to run quite quickly, until both you and Honest Steve are running alongside the slow-moving car with the trailer.'
+    document.getElementById("button1").innerHTML = 'Jump aboard, on the back of the trailer.'
+    document.getElementById("button2").innerHTML = 'Get up in front of the car and knock on the window.'
+ 
+ }else if (place == 'catchup'){
+    alert('YOU KNOCK ON THE WINDOW')
+place = 'giveitup'
+    document.getElementById("text").innerHTML = 'The man slows the car, and listens to your request to join him. He agrees, but asks for one thing in return: your alligator cloak.'
+    document.getElementById("button1").innerHTML = 'You agree to give him the cloak if he allows you to accompany him on his voyage.'
+    document.getElementById("button2").innerHTML = 'Decline. You would have perished long ago without this cloak.'
+ 
+ }else if (place == 'giveitup'){
+    alert('YOU KEEP YOUR CLOAK')
+    document.getElementById("text").innerHTML = 'He shrugs, and drives on. You turn around and see you have followed him quite far into the desert. You die of exhaustion before you make it back to city.'
+    die()
+ 
+ }else if (place == 'buttons2'){
+    alert('YOU PRESS THE GREEN BUTTON')
+    place = 'fly'
+    document.getElementById("text").innerHTML = 'You hear the engines fire up. Using information from the book, you navigate the plane safely up into the air.'
+    document.getElementById("button1").innerHTML = 'Check the book for more instructions.'
+    document.getElementById("button2").innerHTML = 'Look for Honest Steve and the Pilot from above.'
+   
+}else if (place == 'backpackman2'){
+    alert('THE PILOT OPENS THE BAG')
+    place = 'savewho'
+    document.getElementById("text").innerHTML = 'Inside the bag is a mini nuclear warhead. It was activated when the man through it to the ground. You have four seconds until it explodes.'
+    document.getElementById("button1").innerHTML = 'Try to save Honest Steve.'
+    document.getElementById("button2").innerHTML = 'Try to save the Pilot.'
+
+ }else if (place == 'savewho'){
+    alert('YOU TRY TO SAVE THE PILOT')
+    document.getElementById("text").innerHTML = 'You jump in front of the Pilot, and the nuclear explosion tears through your body.'
+    die()
+
+ }else if (place == 'consume'){
+    alert('YOU CONSUME HONEST STEVE')
+    place = 'eatsteve'
+    document.getElementById("text").innerHTML = 'Honest Steve is infuriated that you would try to eat him. He reveals his twelve years of ninja training and dodges any attacks.'
+    document.getElementById("button1").innerHTML = 'Make peace with Steve.'
+    document.getElementById("button2").innerHTML = 'Attack Steve.'
+
+ }else if (place == 'eatsteve'){
+    alert('YOU ATTACK HONEST STEVE')
+    document.getElementById("text").innerHTML = 'Steve wonders what he could have done to offend you, then uses his ninja skills to end your life.'
+    die()
+
+ }else if (place == 'fly'){
+    alert('AS YOU FLY, YOU SEARCH FOR STEVE FROM ABOVE')
+    place = 'above'
+    document.getElementById("text").innerHTML = 'You soon catch sight of the travelers. But they are not alone - you see a crowd of alligators approaching them behind!'
+    document.getElementById("button1").innerHTML = 'Take a parachute and jump out of the plane - this requires drastic action!'
+    document.getElementById("button2").innerHTML = 'Press the red button.'
+   
+ }else if (place == 'drive'){
+    alert('YOU LET HONEST STEVE DRIVE')
+    place = 'backpackman'
+    document.getElementById("text").innerHTML = 'Driving across the desert, you see a man alone, carrying a very large and heavy backpack.'
+    document.getElementById("button1").innerHTML = 'Stop the car.'
+    document.getElementById("button2").innerHTML = 'Continue the drive.'
+  
+ }else if (place == 'backpackman'){
+    alert('YOU CONTINUE THE DRIVE')
+    place = 'broke'
+    document.getElementById("text").innerHTML = 'Pretty soon the car makes a loud noise and the wheels stop turning.'
+    document.getElementById("button1").innerHTML = 'Get out the car.'
+    document.getElementById("button2").innerHTML = 'Tell the Pilot to get out of the car.'
+
+ }else if (place == 'broke'){
+    alert('THE PILOT GETS OUT OF THE CAR')
+    place = 'piloteatensand'
+    document.getElementById("text").innerHTML = 'When the Pilot gets out of the car, he is instantly swallowed by an alligator, hiding in the sand.'
+    document.getElementById("button1").innerHTML = 'Get out the car.'
+    document.getElementById("button2").innerHTML = 'Tell Honest Steve to get out of the car.'
+
+ }else if (place == 'piloteatensand'){
+    alert('HONEST STEVE GETS OUT OF THE CAR')
+    place = 'survived'
+    document.getElementById("text").innerHTML = 'Unlike the Pilot, Honest Steve has twelve years of ninja training, and so takes out the alligator. He tells you it is safe to exit the vehicle. Suddenly the man you passed earlier turns up, still carrying his huge backpack.'
+    document.getElementById("button1").innerHTML = 'Ask the man what\'s in his backpack.'
+    document.getElementById("button2").innerHTML = 'Instruct Steve to relieve the man of his baggage.'
+
+ }else if (place == 'survived'){
+    alert('HONEST STEVE STEALS THE BAG')
+    document.getElementById("text").innerHTML = 'Inside the bag is a baby alligator. It unhinges its jaw and swallows Honest Steve. It slowly turns to face you.'
+    die()
+
+ }else if (place == 'above'){
+    alert('YOU PRESS THE RED BUTTON')
+    place = 'launch'
+    document.getElementById("text").innerHTML = 'You press the red button, and a nuclear warhead is deployed from the hull of the plane, which falls and lands below. All the alligators are caught up in the blast and are instantly incinerated. You can\'t quite see what happened to Honest Steve and the Pilot. They\'re probably fine.'
+    document.getElementById("button1").innerHTML = 'Land the plane and inspect the damage.'
+    document.getElementById("button2").innerHTML = 'Keep flying. Radiation poisoning isn\'t that dangerous, they\'ll be fine (if they survived).'
+    
+ }else if (place == 'launch'){
+    alert('YOU KEEP FLYING')
+    document.getElementById("text").innerHTML = 'As you continue your journey, you hear warning sounds. You are being targeted with missiles. A metallic voice comes through your speakers: "YOU HAVE ENTERED RESTRICTED AIRSPACE. PREPARE TO DIE."'
+    die()
+       
+ }else if (place == 'problem'){
+    alert('YOU SEE IF YOU CAN FIND A PLANE')
+    document.getElementById("text").innerHTML = 'You can\'t, and therefore die.'
+    die()
+ 
+ }else if (place == 'knife'){
+    alert('YOU TAKE THE KNIFE AND CONTINUE YOUR JOURNEY')
+    place = 'alman2'
+    document.getElementById("text").innerHTML = 'After more walking, you encounter a strange man wearing some form of cloak decorated with alligator scales.'
+    document.getElementById("button1").innerHTML = 'Attack him.'
+    document.getElementById("button2").innerHTML = 'Ask him where the nearest settlement is.'
+    
+ }else if (place == 'alman2'){
+    alert('YOU ASK TO BE DIRECTED TO THE NEAREST SETTLEMENT')
+    document.getElementById("text").innerHTML = 'He catches sight of the knife by your side and instantly distrusts you. He directs you west a few miles. It was when you arrived there that he led you to your deaths.'
+    die()
+      
+ }else if (place == 'alman1'){
+    alert('YOU ASK TO BE DIRECTED TO THE NEAREST SETTLEMENT')
+    place = 'talk'
+    document.getElementById("text").innerHTML = 'He gladly obliges, and offers to walk with you, saying he was on his way there himself.'
+    document.getElementById("button1").innerHTML = 'On the journey, talk to the strange alligator man.'
+    document.getElementById("button2").innerHTML = 'On the journey, talk to Honest Steve.'
+     
+ }else if (place == 'talk'){
+    alert('YOU TALK TO HONEST STEVE')
+    place = 'distrust'
+    document.getElementById("text").innerHTML = 'Steve tells you he deeply distrusts this strange figure, and you should be focusing on getting help for the Pilot.'
+    document.getElementById("button1").innerHTML = 'Steve is just being odd. Talk to the alligator man.'
+    document.getElementById("button2").innerHTML = 'Attack the alligator man.'
+     
+ }else if (place == 'poisoned'||place=='radiate'){
+    alert('YOU ABANDON THE PILOT')
+    place = 'abandon'
+pilotalive = 0
+    document.getElementById("text").innerHTML = 'The Pilot dies a few days later. Some days later you find an ancient pyramid, which a strangely mechanical door.'
+    document.getElementById("button1").innerHTML = 'Attempt to fiddle with the gears and mechanics to open the door.'
+    document.getElementById("button2").innerHTML = 'Give up.'
+       
+ }else if (place == 'abandon'){
+    alert('YOU GIVE UP')
+    document.getElementById("text").innerHTML = 'You have given up all hope. If only you helped the Pilot recover...'
+    die()
+       
+ 
+   }
+}
+
+function survive(){
+wait(50)
+	if (place == 'die' || place == 'win'){
+  	
+    }else{
+    count = count + 1
+    document.getElementById("count").innerHTML = 'You have survived '+count+' rounds!'
+    }
+}
+function die(){
+	place = 'die'
+    document.getElementById("warning").innerHTML = 'RELOAD TO TRY AGAIN'
+    document.getElementById("button1").innerHTML = 'YOU'
+    document.getElementById("button2").innerHTML = 'DIED'
+    document.getElementById("count").innerHTML = 'You survived '+count+' rounds before sadly perishing!'
+
+}
+function win(){
+	place = 'win'
+    document.getElementById("warning").innerHTML = 'YOU SUCCESSFULLY FOUND YOUR WAY OUT OF EGYPT ALIVE!'
+    document.getElementById("button1").innerHTML = 'YOU'
+    document.getElementById("button2").innerHTML = 'ESCAPED'
+    document.getElementById("count").innerHTML = 'You survived for '+count+' rounds in Africa!'
+
+document.getElementById("done").innerHTML = 'CONTINUE ACROSS THE ATLANTIC OCEAN'
+
+
+}
+
+function wait(ms){
+var d = new Date();
+var d2 = null;
+do { d2 = new Date(); }
+while(d2-d < ms);
+}
+</script>
+</html>
